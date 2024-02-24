@@ -1,3 +1,5 @@
+package dev.nunu.compose
+
 import android.os.Build
 
 class AndroidPlatform : Platform {

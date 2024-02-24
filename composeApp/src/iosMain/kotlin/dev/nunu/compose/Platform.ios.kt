@@ -1,3 +1,5 @@
+package dev.nunu.compose
+
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {
