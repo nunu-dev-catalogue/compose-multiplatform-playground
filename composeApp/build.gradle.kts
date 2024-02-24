@@ -58,6 +58,10 @@ kotlin {
             implementation(compose.components.resources)
             implementation(libs.bundles.voyager.multiplatform)
         }
+        commonTest.dependencies {
+            implementation(libs.kotlin.test)
+            implementation(libs.kotlin.test.junit)
+        }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
         }
@@ -112,4 +116,10 @@ compose.desktop {
 
 compose.experimental {
     web.application {}
+}
+
+tasks.create("testClasses") {
+    doLast {
+        println("Running tests")
+    }
 }
