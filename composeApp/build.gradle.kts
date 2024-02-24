@@ -47,6 +47,7 @@ kotlin {
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.bundles.voyager.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -55,6 +56,7 @@ kotlin {
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
+            implementation(libs.bundles.voyager.multiplatform)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
