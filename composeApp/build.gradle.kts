@@ -10,8 +10,9 @@ plugins {
 
 kotlin {
     @OptIn(ExperimentalWasmDsl::class)
+    val frameworkName = "composeApp"
     wasmJs {
-        moduleName = "composeApp"
+        moduleName = frameworkName
         browser {
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
@@ -36,8 +37,11 @@ kotlin {
         iosSimulatorArm64()
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+            baseName = frameworkName
             isStatic = true
+            binaryOption("bundleId", "dev.nunu.compose.composeApp")
+            binaryOption("bundleVersion", "1")
+            binaryOption("bundleShortVersionString", "1.0.0")
         }
     }
     
@@ -48,6 +52,7 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.bundles.voyager.android)
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -58,6 +63,7 @@ kotlin {
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
             implementation(libs.bundles.voyager.multiplatform)
+            implementation(libs.koin.core)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -65,6 +71,7 @@ kotlin {
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
+            implementation(libs.kotlin.coroutines.swing)
         }
     }
 }
