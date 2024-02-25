@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import composemultiplatformdemo.composeapp.generated.resources.Res
 import composemultiplatformdemo.composeapp.generated.resources.ic_title_home
 import composemultiplatformdemo.composeapp.generated.resources.ic_title_todo
+import dev.nunu.compose.designsystem.TodoTheme
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.vectorResource
@@ -35,6 +36,6 @@ fun HomeTopAppBar(
             )
             Spacer(modifier = Modifier.width(12.dp))
         },
-        backgroundColor = MaterialTheme.colors.surface
+        backgroundColor = TodoTheme.colors.surface
     )
 }
